@@ -1,0 +1,5 @@
+﻿1. don't use tuples for serialization
+2. don't expose as public (issues with equality) properties //at least right now
+3. use them in algorithms to make them more readable
+4. don't forger about deconstructing to tuples, and that you can add deconstruction via extension methods
+5. remember about the discard ==> _ <== operator (as it will also be used in future in other C# features)
