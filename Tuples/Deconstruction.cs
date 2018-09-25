@@ -54,12 +54,13 @@ namespace Tuples
 
         private (int min, int max) GetMinMax(int[] values)
         {
+            (int min, int max) minMax = (int.MaxValue, int.MinValue);
+
             if (values == null || values.Length == 0)
             {
                 _exception = new ArgumentException("input collection is incorrect");
+                return minMax;
             }
-
-            (int min, int max) minMax = (values[0], values[0]);
 
             foreach (var value in values)
             {
