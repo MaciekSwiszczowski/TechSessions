@@ -4,19 +4,11 @@ using Simd;
 
 namespace Benchmarks.Simd
 {
-    //
-    //                   x64 ONLY!!!
-    //
-
-    // haven't found any good MS docs
-
     // https://instil.co/2016/03/21/parallelism-on-a-single-core-simd-with-c/
     // a workshop: https://github.com/goldshtn/simd-workshop
+    // https://app.pluralsight.com/library/courses/making-dotnet-applications-even-faster/table-of-contents
 
-    // not all operations implemented efficiently!
-    // issues in debug mode not present in release. (debugging with Console.WriteLine may be hard) 
-
-    // for float exp, log and pow: https://github.com/mjmckp/VectorMathFuns/blob/master/Program.cs
+    // for exp, log and pow with floats: https://github.com/mjmckp/VectorMathFuns/blob/master/Program.cs
 
     [MemoryDiagnoser]
     public class MinMaxBenchmark
