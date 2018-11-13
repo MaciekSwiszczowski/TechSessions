@@ -20,8 +20,9 @@ namespace Io.Abstractions
 
             //mockedFileSystem.AllPaths.ShouldContain(fullPath);
 
-            //var processedFile = mockedFileSystem.GetFile(fullPath);
-            //textReadFromFile.ShouldBe(processedFile.TextContents);
+            //var mockedFile = mockedFileSystem.GetFile(fullPath);
+            //textReadFromFile.ShouldBe(mockedFile.TextContents);
+
         }
     }
 }
