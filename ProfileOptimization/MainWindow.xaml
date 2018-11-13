@@ -1,0 +1,40 @@
+﻿<Window x:Class="ProfileOptimization.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProfileOptimization"
+        mc:Ignorable="d"
+        Title="MainWindow" 
+        SizeToContent="WidthAndHeight">
+    <ItemsControl ItemsSource="{Binding }">
+        <ItemsControl.ItemTemplate>
+           <DataTemplate>
+               <ItemsControl ItemsSource="{Binding }">
+                   <ItemsControl.ItemsPanel>
+                       <ItemsPanelTemplate>
+                           <UniformGrid Rows="1" />
+                       </ItemsPanelTemplate>
+                   </ItemsControl.ItemsPanel>
+                   <ItemsControl.ItemTemplate>
+
+                        <DataTemplate>
+                            <Border Margin="-2"
+                                    Width="10"
+                                    Height="10"
+                                    Background="Red"
+                                    Opacity="0.4"
+                                    >
+                                <Border.RenderTransform>
+
+                                    <RotateTransform CenterX="0" CenterY="0" Angle="{Binding }" />
+
+                                </Border.RenderTransform>
+                            </Border>
+                        </DataTemplate>
+                   </ItemsControl.ItemTemplate>
+               </ItemsControl>
+            </DataTemplate>
+        </ItemsControl.ItemTemplate>
+    </ItemsControl>
+</Window>
