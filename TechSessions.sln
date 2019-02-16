@@ -15,7 +15,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProfileOptimization", "Prof
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Io.Abstractions", "Io.Abstractions\Io.Abstractions.csproj", "{BDACC119-325C-4E50-9C8F-0C42D1812670}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenchmarksCore", "BenchmarksCore\BenchmarksCore.csproj", "{A04A3681-09AF-484E-90D4-068698FCB0A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BenchmarksCore", "BenchmarksCore\BenchmarksCore.csproj", "{A04A3681-09AF-484E-90D4-068698FCB0A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FsCheck", "FsCheck\FsCheck.csproj", "{AAE0E047-EF23-4EFA-B6A8-802F429F4629}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,14 @@ Global
 		{A04A3681-09AF-484E-90D4-068698FCB0A8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A04A3681-09AF-484E-90D4-068698FCB0A8}.Release|x64.ActiveCfg = Release|Any CPU
 		{A04A3681-09AF-484E-90D4-068698FCB0A8}.Release|x64.Build.0 = Release|Any CPU
+		{AAE0E047-EF23-4EFA-B6A8-802F429F4629}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAE0E047-EF23-4EFA-B6A8-802F429F4629}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAE0E047-EF23-4EFA-B6A8-802F429F4629}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{AAE0E047-EF23-4EFA-B6A8-802F429F4629}.Debug|x64.Build.0 = Debug|Any CPU
+		{AAE0E047-EF23-4EFA-B6A8-802F429F4629}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAE0E047-EF23-4EFA-B6A8-802F429F4629}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAE0E047-EF23-4EFA-B6A8-802F429F4629}.Release|x64.ActiveCfg = Release|Any CPU
+		{AAE0E047-EF23-4EFA-B6A8-802F429F4629}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
