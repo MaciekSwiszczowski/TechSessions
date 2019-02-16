@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Threading;
 using BenchmarkDotNet.Running;
 using Benchmarks.Branching;
+using Benchmarks.MemoryAlignment;
 using Benchmarks.Simd;
 using Benchmarks.Tuples;
 
@@ -15,19 +16,24 @@ namespace Benchmarks
             Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
             Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
 
-            //var summary = BenchmarkRunner.Run<MinMaxBenchmark>();
-            //var summary = BenchmarkRunner.Run<DeconstructDateTime>();
-            //var summary = BenchmarkRunner.Run<MyMath>();
-            //var summary = BenchmarkRunner.Run<AvoidBranching>();
+            //BenchmarkRunner.Run<MinMaxBenchmark>();
+            //BenchmarkRunner.Run<DeconstructDateTime>();
+            //BenchmarkRunner.Run<MyMath>();
+            //BenchmarkRunner.Run<AvoidBranching>();
+
+           //BenchmarkRunner.Run<Min>();
+           //BenchmarkRunner.Run<CacheMissesLooping>();
+            
+
+           //BenchmarkRunner.Run<LargeObjectsCacheMisses>();
+           //BenchmarkRunner.Run<ClassVsStruct>();
+           //BenchmarkRunner.Run<CacheInvalidation>();
+           BenchmarkRunner.Run<TwoArraysExample>();
+           //BenchmarkRunner.Run<SecondTwoArraysExample>();
 
 
 
-            var summary = BenchmarkRunner.Run<Abs>();
-            //var a = new AvoidBranching();
-            //a.Setup();
-            //a.SumBiggerThan500Branched();
-
-            Console.ReadKey();
+           Console.ReadKey();
         }
     }
 }

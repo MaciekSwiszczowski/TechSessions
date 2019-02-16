@@ -1,10 +1,15 @@
 ﻿using System;
 using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Order;
 using static BenchmarkDotNet.Diagnosers.HardwareCounter;
 
 namespace Benchmarks.Branching
 {
-    [HardwareCounters(BranchInstructions, BranchMispredictions)]
+    [HardwareCounters(BranchInstructions, BranchMispredictions, CacheMisses)]
+    //[MemoryDiagnoser]
+    //[InliningDiagnoser]
+    [RankColumn]
+    [Orderer(SummaryOrderPolicy.SlowestToFastest)]
     public class Min
     {
         private readonly int[] _valuesA = new int[1000];

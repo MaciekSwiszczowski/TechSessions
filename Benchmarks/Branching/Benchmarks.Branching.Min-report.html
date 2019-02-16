@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>Benchmarks.Branching.AvoidBranching</title>
+<title>Benchmarks.Branching.Min</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -13,7 +13,7 @@
 </head>
 <body>
 <pre><code>
-BenchmarkDotNet=v0.11.2, OS=Windows 10.0.17134.345 (1803/April2018Update/Redstone4)
+BenchmarkDotNet=v0.11.3, OS=Windows 10.0.17134.345 (1803/April2018Update/Redstone4)
 Intel Core i5-6400 CPU 2.70GHz (Skylake), 1 CPU, 4 logical and 4 physical cores
 Frequency=2648437 Hz, Resolution=377.5812 ns, Timer=TSC
   [Host]     : .NET Framework 4.7.2 (CLR 4.0.30319.42000), 64bit RyuJIT-v4.7.3190.0
@@ -22,10 +22,11 @@ Frequency=2648437 Hz, Resolution=377.5812 ns, Timer=TSC
 <pre><code></code></pre>
 
 <table>
-<thead><tr><th>                      Method</th><th>Mean</th><th>Error</th><th>StdDev</th><th>Ratio</th><th>RatioSD</th><th>BranchInstructions/Op</th><th>BranchMispredictions/Op</th><th>CacheMisses/Op</th>
+<thead><tr><th>            Method</th><th>Mean</th><th>Error</th><th>StdDev</th><th>Rank</th><th>BranchInstructions/Op</th><th>BranchMispredictions/Op</th><th>CacheMisses/Op</th>
 </tr>
-</thead><tbody><tr><td>SumBiggerThan50000BranchedUnsorted</td><td>63.03 us</td><td>0.4541 us</td><td>0.4247 us</td><td>4.72</td><td>0.04</td><td>15,774</td><td>1,794</td><td>38</td>
-</tr><tr><td>SumBiggerThan50000Sorted</td><td>13.33 us</td><td>0.0686 us</td><td>0.0608 us</td><td>1.00</td><td>0.00</td><td>15,902</td><td>3</td><td>14</td>
+</thead><tbody><tr><td>SumMinsWithOperator</td><td>4.945 us</td><td>0.0373 us</td><td>0.0349 us</td><td>3</td><td>948</td><td>172</td><td>1</td>
+</tr><tr><td>SumMinsWithMathLibrary</td><td>4.431 us</td><td>0.0212 us</td><td>0.0188 us</td><td>2</td><td>990</td><td>160</td><td>2</td>
+</tr><tr><td>SumMinsWithBitOperations</td><td>1.420 us</td><td>0.0113 us</td><td>0.0106 us</td><td>1</td><td>394</td><td>1</td><td>1</td>
 </tr></tbody></table>
 </body>
 </html>

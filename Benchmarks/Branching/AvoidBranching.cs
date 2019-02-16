@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Diagnostics.Windows.Configs;
 using static BenchmarkDotNet.Diagnosers.HardwareCounter;
 
 namespace Benchmarks.Branching
 {
-    [HardwareCounters(BranchInstructions, BranchMispredictions)]
+    [HardwareCounters(BranchInstructions, BranchMispredictions, CacheMisses)]
+    //[MemoryDiagnoser]
+    //[InliningDiagnoser]
     public class AvoidBranching
     {
         private readonly List<int> _data = new List<int>();
@@ -15,7 +18,7 @@ namespace Benchmarks.Branching
         public void Setup()
         {
             var random = new Random(42);
-            for (var i = 0; i < 1000; ++i)
+            for (var i = 0; i < 10000; ++i)
             {
                 _data.Add(random.Next(100000));
                 _dataSorted.Add(_data[i]) ;
