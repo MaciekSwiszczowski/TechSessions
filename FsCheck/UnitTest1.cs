@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Threading;
 using NUnit.Framework;
 
 namespace FsCheck
@@ -6,9 +9,42 @@ namespace FsCheck
     [TestFixture]
     public class UnitTest1
     {
-        [Test]
-        public void TestMethod1()
+
+        [SetUp]
+        public void RunBeforeAnyTests()
         {
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("En-Us");
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("En-Us");
+
+            Gen.Choose(1, 44);
+        }
+
+
+        //[FsCheck.NUnit.Property(Verbose = true)]
+        //[Test]
+        //public void TestMethod1()
+        //{
+        //    Func<int[], bool> revRevIsOrig = xs => true;
+        //    Prop.ForAll(revRevIsOrig).QuickCheckThrowOnFailure();
+        //}
+
+
+        [Test]
+        public void Test()
+        {
+
         }
     }
+
+
+
+    //[SetUpFixture]
+    //public class MySetUpClass
+    //{
+    //    public MySetUpClass()
+    //    {
+    //        Thread.CurrentThread.CurrentCulture = new CultureInfo("En-Us");
+    //        Thread.CurrentThread.CurrentUICulture = new CultureInfo("En-Us");
+    //    }
+    //}
 }
