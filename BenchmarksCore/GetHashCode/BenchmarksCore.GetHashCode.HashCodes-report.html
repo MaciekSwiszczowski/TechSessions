@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>BenchmarksCore.GetHashCode.HashCodes-20190616-015238</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet=v0.11.5, OS=Windows 10.0.17763.437 (1809/October2018Update/Redstone5)
+Intel Core i5-6400 CPU 2.70GHz (Skylake), 1 CPU, 4 logical and 4 physical cores
+.NET Core SDK=3.0.100-preview-009812
+  [Host]     : .NET Core 2.1.11 (CoreCLR 4.6.27617.04, CoreFX 4.6.27617.02), 64bit RyuJIT
+  DefaultJob : .NET Core 2.1.11 (CoreCLR 4.6.27617.04, CoreFX 4.6.27617.02), 64bit RyuJIT
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>           Method</th><th>Size</th><th>Mean</th><th>Error</th><th>StdDev</th><th>Ratio</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th><th>BranchInstructions/Op</th><th>CacheMisses/Op</th><th>BranchMispredictions/Op</th>
+</tr>
+</thead><tbody><tr><td>ResharperLikeHashCodes</td><td>1000</td><td>4,423.3 ns</td><td>7.426 ns</td><td>6.201 ns</td><td>0.99</td><td>-</td><td>-</td><td>-</td><td>-</td><td>3,094</td><td>1</td><td>1</td>
+</tr><tr><td>JonSkeetLikeHashCodes</td><td>1000</td><td>4,473.4 ns</td><td>26.680 ns</td><td>24.957 ns</td><td>1.00</td><td>-</td><td>-</td><td>-</td><td>-</td><td>3,583</td><td>1</td><td>1</td>
+</tr><tr><td>DotNetCoreLikeHashCodes</td><td>1000</td><td>8,027.3 ns</td><td>37.438 ns</td><td>35.019 ns</td><td>1.79</td><td>-</td><td>-</td><td>-</td><td>-</td><td>4,663</td><td>2</td><td>1</td>
+</tr><tr><td>TrivialHashCodes</td><td>1000</td><td>775.6 ns</td><td>3.227 ns</td><td>3.018 ns</td><td>0.17</td><td>-</td><td>-</td><td>-</td><td>-</td><td>1,076</td><td>0</td><td>0</td>
+</tr></tbody></table>
+</body>
+</html>

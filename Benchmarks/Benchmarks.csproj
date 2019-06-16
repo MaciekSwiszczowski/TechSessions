@@ -255,6 +255,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Async\FileAccess.cs" />
     <Compile Include="Branching\AvoidBranching.cs" />
     <Compile Include="Branching\Abs.cs" />
     <Compile Include="Branching\CacheInvalidation.cs" />

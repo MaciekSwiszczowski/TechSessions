@@ -2,10 +2,7 @@
 using System.Globalization;
 using System.Threading;
 using BenchmarkDotNet.Running;
-using Benchmarks.Branching;
-using Benchmarks.MemoryAlignment;
-using Benchmarks.Simd;
-using Benchmarks.Tuples;
+using Benchmarks.Async;
 
 namespace Benchmarks
 {
@@ -28,7 +25,7 @@ namespace Benchmarks
            //BenchmarkRunner.Run<LargeObjectsCacheMisses>();
            //BenchmarkRunner.Run<ClassVsStruct>();
            //BenchmarkRunner.Run<CacheInvalidation>();
-           BenchmarkRunner.Run<TwoArraysExample>();
+           BenchmarkRunner.Run<FileAccess>();
            //BenchmarkRunner.Run<SecondTwoArraysExample>();
 
 
