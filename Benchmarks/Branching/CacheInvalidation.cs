@@ -8,7 +8,7 @@ using static BenchmarkDotNet.Diagnosers.HardwareCounter;
 namespace Benchmarks.Branching
 {
     [HardwareCounters(BranchInstructions, BranchMispredictions, CacheMisses)]
-    [InliningDiagnoser]
+    [InliningDiagnoser(true, true)]
     public class CacheInvalidation
     {
         private static readonly int NumberOfThreads = Environment.ProcessorCount;

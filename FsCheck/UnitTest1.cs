@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Threading;
+using FsCheck;
 using NUnit.Framework;
 
-namespace FsCheck
+namespace FsCheckExamples
 {
     [TestFixture]
     public class UnitTest1

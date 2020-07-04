@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Windows;
-using System.Runtime;
 
 namespace ProfileOptimization
 {
-    public partial class App : Application
+    public partial class App
     {
         public static DateTime Timer { get; set; }
 

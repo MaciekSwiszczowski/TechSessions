@@ -2,7 +2,7 @@
 using System.Windows;
 using NUnit.Framework;
 
-namespace NUnitAndMoq
+namespace NUnitAndMoqExamples
 {
     [TestFixture]
     public class Untestable
@@ -13,7 +13,7 @@ namespace NUnitAndMoq
         {
             MessageBox.Show("Test", "Test");
             
-            Application.Current.Dispatcher.Invoke(() => {});
+            //Application.Current.Dispatcher.Invoke(() => {});
         }
         
     }
