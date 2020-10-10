@@ -3,21 +3,22 @@ using BenchmarkDotNet.Attributes;
 
 namespace Benchmarks.Branching
 {
-
     internal class ReferenceType
     {
-        public int Value;
+        public int value;
     }
 
     internal struct ValueType
     {
-        public int Value;
+        public int value;
     }
 
     internal struct ExtendedValueType
     {
-        public int Value;
+        public int value;
+#pragma warning disable 169
         private double _otherData;
+#pragma warning restore 169
     }
 
     public class ClassVsStruct
@@ -28,8 +29,7 @@ namespace Benchmarks.Branching
         private ExtendedValueType[] _extendedValueTypeData;
         private int[] _data;
 
-        [Params(16*1_000)]
-        public int Size { get; set; }
+        [Params(16 * 1_000)] public int Size { get; set; }
 
         [GlobalSetup]
         public void GlobalSetup()
@@ -45,10 +45,10 @@ namespace Benchmarks.Branching
             for (var i = 0; i < Size; i++)
             {
                 _data[i] = random.Next(100000);
-                _referenceTypeData[i] = new ReferenceType { Value = _data[i] };
-                _referenceTypeData2[i] = new ReferenceType { Value = _data[i] };
-                _valueTypeData[i] = new ValueType { Value = _data[i] };
-                _extendedValueTypeData[i] = new ExtendedValueType { Value = _data[i] };
+                _referenceTypeData[i] = new ReferenceType {value = _data[i]};
+                _referenceTypeData2[i] = new ReferenceType {value = _data[i]};
+                _valueTypeData[i] = new ValueType {value = _data[i]};
+                _extendedValueTypeData[i] = new ExtendedValueType {value = _data[i]};
             }
         }
 
@@ -59,7 +59,7 @@ namespace Benchmarks.Branching
 
             for (var i = 0; i < Size; i++)
             {
-                sum += _referenceTypeData[i].Value;
+                sum += _referenceTypeData[i].value;
             }
 
             return sum;
@@ -72,7 +72,7 @@ namespace Benchmarks.Branching
 
             for (var i = 0; i < Size; i++)
             {
-                sum += _referenceTypeData2[i].Value;
+                sum += _referenceTypeData2[i].value;
             }
 
             return sum;
@@ -85,7 +85,7 @@ namespace Benchmarks.Branching
 
             for (var i = 0; i < Size; i++)
             {
-                sum += _valueTypeData[i].Value;
+                sum += _valueTypeData[i].value;
             }
 
             return sum;
@@ -98,14 +98,11 @@ namespace Benchmarks.Branching
 
             for (var i = 0; i < Size; i++)
             {
-                sum += _extendedValueTypeData[i].Value;
+                sum += _extendedValueTypeData[i].value;
             }
 
             return sum;
         }
-
-
-
 
 
         //[Benchmark]
@@ -116,13 +113,13 @@ namespace Benchmarks.Branching
 
             for (var i = 0; i < array.Length; i++)
             {
-                sum += array[i].Value;
+                sum += array[i].value;
             }
 
             return sum;
         }
 
-      //  [Benchmark]
+        //  [Benchmark]
         public int ValueTypeOptimizedSum()
         {
             var sum = 0;
@@ -130,13 +127,13 @@ namespace Benchmarks.Branching
 
             for (var i = 0; i < array.Length; i++)
             {
-                sum += array[i].Value;
+                sum += array[i].value;
             }
 
             return sum;
         }
 
-    //    [Benchmark]
+        //    [Benchmark]
         public int ExtendedValueTypeOptimizedSum()
         {
             var sum = 0;
@@ -144,16 +141,14 @@ namespace Benchmarks.Branching
 
             for (var i = 0; i < array.Length; i++)
             {
-                sum += array[i].Value;
+                sum += array[i].value;
             }
 
             return sum;
         }
 
 
-
-
-  //      [Benchmark]
+        //      [Benchmark]
         public int ReferenceTypeUnrolledSum()
         {
             var sum = 0;
@@ -161,22 +156,22 @@ namespace Benchmarks.Branching
 
             for (var i = 0; i < array.Length; i += 16)
             {
-                sum += array[i].Value;
-                sum += array[i + 1].Value;
-                sum += array[i + 2].Value;
-                sum += array[i + 3].Value;
-                sum += array[i + 4].Value;
-                sum += array[i + 5].Value;
-                sum += array[i + 6].Value;
-                sum += array[i + 7].Value;
-                sum += array[i + 8].Value;
-                sum += array[i + 9].Value;
-                sum += array[i + 10].Value;
-                sum += array[i + 11].Value;
-                sum += array[i + 12].Value;
-                sum += array[i + 13].Value;
-                sum += array[i + 14].Value;
-                sum += array[i + 15].Value;
+                sum += array[i].value;
+                sum += array[i + 1].value;
+                sum += array[i + 2].value;
+                sum += array[i + 3].value;
+                sum += array[i + 4].value;
+                sum += array[i + 5].value;
+                sum += array[i + 6].value;
+                sum += array[i + 7].value;
+                sum += array[i + 8].value;
+                sum += array[i + 9].value;
+                sum += array[i + 10].value;
+                sum += array[i + 11].value;
+                sum += array[i + 12].value;
+                sum += array[i + 13].value;
+                sum += array[i + 14].value;
+                sum += array[i + 15].value;
             }
 
             return sum;
@@ -192,7 +187,7 @@ namespace Benchmarks.Branching
             {
                 for (var j = 0; j < 16; j++)
                 {
-                    sum += array[i + j].Value;
+                    sum += array[i + j].value;
                 }
             }
 
@@ -207,22 +202,22 @@ namespace Benchmarks.Branching
 
             for (var i = 0; i < array.Length; i += 16)
             {
-                sum += array[i].Value;
-                sum += array[i + 1].Value;
-                sum += array[i + 2].Value;
-                sum += array[i + 3].Value;
-                sum += array[i + 4].Value;
-                sum += array[i + 5].Value;
-                sum += array[i + 6].Value;
-                sum += array[i + 7].Value;
-                sum += array[i + 8].Value;
-                sum += array[i + 9].Value;
-                sum += array[i + 10].Value;
-                sum += array[i + 11].Value;
-                sum += array[i + 12].Value;
-                sum += array[i + 13].Value;
-                sum += array[i + 14].Value;
-                sum += array[i + 15].Value;
+                sum += array[i].value;
+                sum += array[i + 1].value;
+                sum += array[i + 2].value;
+                sum += array[i + 3].value;
+                sum += array[i + 4].value;
+                sum += array[i + 5].value;
+                sum += array[i + 6].value;
+                sum += array[i + 7].value;
+                sum += array[i + 8].value;
+                sum += array[i + 9].value;
+                sum += array[i + 10].value;
+                sum += array[i + 11].value;
+                sum += array[i + 12].value;
+                sum += array[i + 13].value;
+                sum += array[i + 14].value;
+                sum += array[i + 15].value;
             }
 
             return sum;
@@ -236,22 +231,22 @@ namespace Benchmarks.Branching
 
             for (var i = 0; i < array.Length; i += 16)
             {
-                sum += array[i].Value;
-                sum += array[i + 1].Value;
-                sum += array[i + 2].Value;
-                sum += array[i + 3].Value;
-                sum += array[i + 4].Value;
-                sum += array[i + 5].Value;
-                sum += array[i + 6].Value;
-                sum += array[i + 7].Value;
-                sum += array[i + 8].Value;
-                sum += array[i + 9].Value;
-                sum += array[i + 10].Value;
-                sum += array[i + 11].Value;
-                sum += array[i + 12].Value;
-                sum += array[i + 13].Value;
-                sum += array[i + 14].Value;
-                sum += array[i + 15].Value;
+                sum += array[i].value;
+                sum += array[i + 1].value;
+                sum += array[i + 2].value;
+                sum += array[i + 3].value;
+                sum += array[i + 4].value;
+                sum += array[i + 5].value;
+                sum += array[i + 6].value;
+                sum += array[i + 7].value;
+                sum += array[i + 8].value;
+                sum += array[i + 9].value;
+                sum += array[i + 10].value;
+                sum += array[i + 11].value;
+                sum += array[i + 12].value;
+                sum += array[i + 13].value;
+                sum += array[i + 14].value;
+                sum += array[i + 15].value;
             }
 
             return sum;

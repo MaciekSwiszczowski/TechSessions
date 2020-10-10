@@ -12,7 +12,9 @@
         private int[] _firstData;
         private int[] _secondData;
         private int[] _thirdData;
+#pragma warning disable 414
         private short _layoutChange = 0;
+#pragma warning restore 414
         private int[] _fourthData;
 
         [Params(1000, 32 * 100, 16 * 1000, 10_001)]
