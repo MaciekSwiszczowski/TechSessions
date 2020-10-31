@@ -2,8 +2,7 @@
 using System.Globalization;
 using System.Threading;
 using BenchmarkDotNet.Running;
-using Benchmarks.Async;
-using Benchmarks.Tuples;
+using Benchmarks.Pooling;
 
 namespace Benchmarks
 {
@@ -26,7 +25,7 @@ namespace Benchmarks
            //BenchmarkRunner.Run<LargeObjectsCacheMisses>();
            //BenchmarkRunner.Run<ClassVsStruct>();
            //BenchmarkRunner.Run<CacheInvalidation>();
-           BenchmarkRunner.Run<SwapWithTuplesBenchmark>();
+           BenchmarkRunner.Run<ArrayPoolBenchmark>();
            //BenchmarkRunner.Run<SecondTwoArraysExample>();
 
 

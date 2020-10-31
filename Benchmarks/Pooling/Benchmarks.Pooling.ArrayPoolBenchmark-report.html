@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>Benchmarks.Pooling.ArrayPoolBenchmark-20201010-185449</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet=v0.12.1, OS=Windows 10.0.18363.836 (1909/November2018Update/19H2)
+Intel Core i5-6400 CPU 2.70GHz (Skylake), 1 CPU, 4 logical and 4 physical cores
+.NET Core SDK=5.0.100-preview.5.20279.10
+  [Host]     : .NET Core 5.0.0 (CoreCLR 5.0.20.27801, CoreFX 5.0.20.27801), X64 RyuJIT
+  DefaultJob : .NET Core 5.0.0 (CoreCLR 5.0.20.27801, CoreFX 5.0.20.27801), X64 RyuJIT
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>        Method</th><th>SizeInBytes</th><th>Repetitions</th><th>  Mean</th><th> Error</th><th>StdDev</th><th>Ratio</th><th>RatioSD</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>Allocate</td><td>100</td><td>1</td><td>16.57 ns</td><td>0.362 ns</td><td>0.321 ns</td><td>0.59</td><td>0.01</td><td>0.0408</td><td>-</td><td>-</td><td>128 B</td>
+</tr><tr><td>RentAndReturn_Shared</td><td>100</td><td>1</td><td>28.04 ns</td><td>0.266 ns</td><td>0.249 ns</td><td>1.00</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>Allocate</td><td>100</td><td>1000</td><td>15,729.02 ns</td><td>309.968 ns</td><td>454.348 ns</td><td>0.60</td><td>0.02</td><td>40.8020</td><td>-</td><td>-</td><td>128000 B</td>
+</tr><tr><td>RentAndReturn_Shared</td><td>100</td><td>1000</td><td>26,407.66 ns</td><td>216.815 ns</td><td>202.809 ns</td><td>1.00</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>Allocate</td><td>1000</td><td>1</td><td>95.80 ns</td><td>1.549 ns</td><td>1.449 ns</td><td>3.44</td><td>0.07</td><td>0.3263</td><td>-</td><td>-</td><td>1024 B</td>
+</tr><tr><td>RentAndReturn_Shared</td><td>1000</td><td>1</td><td>27.88 ns</td><td>0.355 ns</td><td>0.332 ns</td><td>1.00</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>Allocate</td><td>1000</td><td>1000</td><td>93,273.01 ns</td><td>1,738.455 ns</td><td>2,198.588 ns</td><td>3.57</td><td>0.10</td><td>326.2939</td><td>-</td><td>-</td><td>1024000 B</td>
+</tr><tr><td>RentAndReturn_Shared</td><td>1000</td><td>1000</td><td>26,112.26 ns</td><td>227.712 ns</td><td>213.002 ns</td><td>1.00</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr></tbody></table>
+</body>
+</html>
