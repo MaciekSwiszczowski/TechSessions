@@ -14,13 +14,20 @@ namespace Verify.Tests
             var person = ClassBeingTested.FindPerson();
             return Verifier.Verify(person);
         }
+
+        [Test]
+        public Task Test2()
+        {
+            var values = new[] {"1", "2", "3", "4"};
+            return Verifier.Verify(values);
+        }
     }
 
     public static class ClassBeingTested
     {
         public static Person FindPerson()
         {
-            return new Person()
+            return new Person
             {
                 Id = new Guid("ebced679-45d3-4653-8791-3d969c4a986c"),
                 GivenNames = "John",
