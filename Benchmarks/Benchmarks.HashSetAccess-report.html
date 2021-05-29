@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>Benchmarks.HashSetAccess-20210529-145352</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet=v0.13.0, OS=Windows 10.0.19042.928 (20H2/October2020Update)
+Intel Core i5-6400 CPU 2.70GHz (Skylake), 1 CPU, 4 logical and 4 physical cores
+.NET SDK=5.0.202
+  [Host]     : .NET 5.0.5 (5.0.521.16609), X64 RyuJIT
+  DefaultJob : .NET 5.0.5 (5.0.521.16609), X64 RyuJIT
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>                Method</th><th>Size</th><th>ChosenSize</th><th>  Mean</th><th>Error</th><th>StdDev</th><th>Ratio</th><th>RatioSD</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>ListTest</td><td>30</td><td>0</td><td>31.502 ns</td><td>0.1897 ns</td><td>0.1584 ns</td><td>1.00</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>ListTestWithSizeCheck</td><td>30</td><td>0</td><td>1.151 ns</td><td>0.0161 ns</td><td>0.0134 ns</td><td>0.04</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>HashTest_Contains</td><td>30</td><td>0</td><td>115.625 ns</td><td>0.6893 ns</td><td>0.6447 ns</td><td>3.67</td><td>0.02</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>HashTest_TryGetValue</td><td>30</td><td>0</td><td>100.019 ns</td><td>0.5511 ns</td><td>0.5155 ns</td><td>3.17</td><td>0.02</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>ListOfHashes</td><td>30</td><td>0</td><td>82.980 ns</td><td>0.4406 ns</td><td>0.4121 ns</td><td>2.63</td><td>0.02</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>HashSetOfHashes</td><td>30</td><td>0</td><td>164.372 ns</td><td>1.8085 ns</td><td>1.6917 ns</td><td>5.22</td><td>0.06</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>HashSetOfHashesWithSizeCheck</td><td>30</td><td>0</td><td>1.550 ns</td><td>0.0188 ns</td><td>0.0157 ns</td><td>0.05</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>ListTest</td><td>30</td><td>1</td><td>454.227 ns</td><td>3.4565 ns</td><td>3.2332 ns</td><td>1.00</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>ListTestWithSizeCheck</td><td>30</td><td>1</td><td>452.856 ns</td><td>2.8908 ns</td><td>2.5627 ns</td><td>1.00</td><td>0.01</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>HashTest_Contains</td><td>30</td><td>1</td><td>427.033 ns</td><td>4.2334 ns</td><td>3.7528 ns</td><td>0.94</td><td>0.01</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>HashTest_TryGetValue</td><td>30</td><td>1</td><td>499.169 ns</td><td>2.9053 ns</td><td>2.4261 ns</td><td>1.10</td><td>0.01</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>ListOfHashes</td><td>30</td><td>1</td><td>244.464 ns</td><td>2.1458 ns</td><td>2.0072 ns</td><td>0.54</td><td>0.01</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>HashSetOfHashes</td><td>30</td><td>1</td><td>234.395 ns</td><td>1.6288 ns</td><td>1.4439 ns</td><td>0.52</td><td>0.01</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>HashSetOfHashesWithSizeCheck</td><td>30</td><td>1</td><td>241.394 ns</td><td>1.8032 ns</td><td>1.6867 ns</td><td>0.53</td><td>0.01</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>ListTest</td><td>30</td><td>2</td><td>523.319 ns</td><td>2.0488 ns</td><td>1.9164 ns</td><td>1.00</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>ListTestWithSizeCheck</td><td>30</td><td>2</td><td>524.289 ns</td><td>3.7562 ns</td><td>3.3298 ns</td><td>1.00</td><td>0.01</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>HashTest_Contains</td><td>30</td><td>2</td><td>417.322 ns</td><td>1.6863 ns</td><td>1.5774 ns</td><td>0.80</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>HashTest_TryGetValue</td><td>30</td><td>2</td><td>493.326 ns</td><td>9.1516 ns</td><td>8.5604 ns</td><td>0.94</td><td>0.02</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>ListOfHashes</td><td>30</td><td>2</td><td>256.921 ns</td><td>1.2223 ns</td><td>1.1434 ns</td><td>0.49</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>HashSetOfHashes</td><td>30</td><td>2</td><td>248.153 ns</td><td>1.0900 ns</td><td>1.0196 ns</td><td>0.47</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>HashSetOfHashesWithSizeCheck</td><td>30</td><td>2</td><td>247.155 ns</td><td>1.4869 ns</td><td>1.2417 ns</td><td>0.47</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>ListTest</td><td>60</td><td>0</td><td>63.504 ns</td><td>0.3870 ns</td><td>0.3430 ns</td><td>1.00</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>ListTestWithSizeCheck</td><td>60</td><td>0</td><td>1.150 ns</td><td>0.0104 ns</td><td>0.0098 ns</td><td>0.02</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>HashTest_Contains</td><td>60</td><td>0</td><td>221.776 ns</td><td>0.6893 ns</td><td>0.6447 ns</td><td>3.49</td><td>0.02</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>HashTest_TryGetValue</td><td>60</td><td>0</td><td>194.917 ns</td><td>0.9010 ns</td><td>0.7523 ns</td><td>3.07</td><td>0.02</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>ListOfHashes</td><td>60</td><td>0</td><td>158.702 ns</td><td>0.7419 ns</td><td>0.6940 ns</td><td>2.50</td><td>0.02</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>HashSetOfHashes</td><td>60</td><td>0</td><td>315.426 ns</td><td>1.5249 ns</td><td>1.1905 ns</td><td>4.97</td><td>0.04</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>HashSetOfHashesWithSizeCheck</td><td>60</td><td>0</td><td>1.542 ns</td><td>0.0113 ns</td><td>0.0100 ns</td><td>0.02</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>ListTest</td><td>60</td><td>1</td><td>878.597 ns</td><td>3.1922 ns</td><td>2.9860 ns</td><td>1.00</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>ListTestWithSizeCheck</td><td>60</td><td>1</td><td>877.446 ns</td><td>3.0083 ns</td><td>2.8139 ns</td><td>1.00</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>HashTest_Contains</td><td>60</td><td>1</td><td>913.364 ns</td><td>3.1020 ns</td><td>2.9016 ns</td><td>1.04</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>HashTest_TryGetValue</td><td>60</td><td>1</td><td>1,105.950 ns</td><td>7.2285 ns</td><td>6.7615 ns</td><td>1.26</td><td>0.01</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>ListOfHashes</td><td>60</td><td>1</td><td>454.683 ns</td><td>1.7502 ns</td><td>1.5515 ns</td><td>0.52</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>HashSetOfHashes</td><td>60</td><td>1</td><td>460.258 ns</td><td>1.6099 ns</td><td>1.4272 ns</td><td>0.52</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>HashSetOfHashesWithSizeCheck</td><td>60</td><td>1</td><td>485.677 ns</td><td>5.8287 ns</td><td>5.1670 ns</td><td>0.55</td><td>0.01</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>ListTest</td><td>60</td><td>2</td><td>1,077.094 ns</td><td>4.1817 ns</td><td>3.7070 ns</td><td>1.00</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>ListTestWithSizeCheck</td><td>60</td><td>2</td><td>1,048.733 ns</td><td>5.5344 ns</td><td>5.1768 ns</td><td>0.97</td><td>0.01</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>HashTest_Contains</td><td>60</td><td>2</td><td>970.948 ns</td><td>7.2549 ns</td><td>6.4313 ns</td><td>0.90</td><td>0.01</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>HashTest_TryGetValue</td><td>60</td><td>2</td><td>1,086.584 ns</td><td>6.0830 ns</td><td>5.3925 ns</td><td>1.01</td><td>0.01</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>ListOfHashes</td><td>60</td><td>2</td><td>497.431 ns</td><td>2.3519 ns</td><td>2.0849 ns</td><td>0.46</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>HashSetOfHashes</td><td>60</td><td>2</td><td>471.313 ns</td><td>1.5846 ns</td><td>1.4047 ns</td><td>0.44</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr><tr><td>HashSetOfHashesWithSizeCheck</td><td>60</td><td>2</td><td>487.405 ns</td><td>2.6844 ns</td><td>2.5110 ns</td><td>0.45</td><td>0.00</td><td>-</td><td>-</td><td>-</td><td>-</td>
+</tr></tbody></table>
+</body>
+</html>

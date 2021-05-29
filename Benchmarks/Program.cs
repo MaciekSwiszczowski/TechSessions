@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Threading;
 using BenchmarkDotNet.Running;
-using Benchmarks.Pooling;
+using Benchmarks.MulticastDelegate;
 
 namespace Benchmarks
 {
@@ -13,24 +13,11 @@ namespace Benchmarks
             Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
             Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
 
-            //BenchmarkRunner.Run<MinMaxBenchmark>();
-            //BenchmarkRunner.Run<DeconstructDateTime>();
-            //BenchmarkRunner.Run<MyMath>();
-            //BenchmarkRunner.Run<AvoidBranching>();
-
-           //BenchmarkRunner.Run<Min>();
-           //BenchmarkRunner.Run<CacheMissesLooping>();
-            
-
-           //BenchmarkRunner.Run<LargeObjectsCacheMisses>();
-           //BenchmarkRunner.Run<ClassVsStruct>();
-           //BenchmarkRunner.Run<CacheInvalidation>();
-           BenchmarkRunner.Run<ArrayPoolBenchmark>();
-           //BenchmarkRunner.Run<SecondTwoArraysExample>();
+            BenchmarkRunner.Run<HashSetAccess>();
 
 
 
-           Console.ReadKey();
+            Console.ReadKey();
         }
     }
 }
