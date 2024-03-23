@@ -65,7 +65,7 @@ namespace Benchmarks.Branching
             return sum;
         }
 
-        [Benchmark]
+        //[Benchmark]
         public int ReferenceTypeSum2()
         {
             var sum = 0;
@@ -78,7 +78,7 @@ namespace Benchmarks.Branching
             return sum;
         }
 
-        //[Benchmark]
+        [Benchmark]
         public int ValueTypeSum()
         {
             var sum = 0;

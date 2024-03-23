@@ -2,7 +2,6 @@
 using System.Globalization;
 using System.Threading;
 using BenchmarkDotNet.Running;
-using Benchmarks.MulticastDelegate;
 
 namespace Benchmarks
 {
@@ -13,8 +12,8 @@ namespace Benchmarks
             Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
             Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
 
-            BenchmarkRunner.Run<HashSetAccess>();
-
+            //BenchmarkRunner.Run<HashSetAccess>();
+            var summaries = BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).Run();
 
 
             Console.ReadKey();
