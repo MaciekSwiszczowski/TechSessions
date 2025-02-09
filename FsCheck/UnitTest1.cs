@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 using System.Threading;
-using FsCheck;
+using FsCheck.Fluent;
 using NUnit.Framework;
 
 namespace FsCheckExamples

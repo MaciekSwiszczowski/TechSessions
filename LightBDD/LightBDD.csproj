@@ -11,13 +11,13 @@
     <Reference Include="System.Runtime" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="LightBDD.Core" Version="3.7.0" />
-    <PackageReference Include="LightBDD.Framework" Version="3.7.0" />
+    <PackageReference Include="LightBDD.Core" Version="3.10.0" />
+    <PackageReference Include="LightBDD.Framework" Version="3.10.0" />
     <PackageReference Include="LightBDD.MsTest2" Version="3.6.1" />
-    <PackageReference Include="LightBDD.NUnit3" Version="3.7.0" />
+    <PackageReference Include="LightBDD.NUnit3" Version="3.10.0" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-    <PackageReference Include="MSTest.TestAdapter" Version="3.2.2" />
-    <PackageReference Include="MSTest.TestFramework" Version="3.2.2" />
-    <PackageReference Include="NUnit" Version="4.1.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="3.7.3" />
+    <PackageReference Include="MSTest.TestFramework" Version="3.7.3" />
+    <PackageReference Include="NUnit" Version="4.3.2" />
   </ItemGroup>
 </Project>
