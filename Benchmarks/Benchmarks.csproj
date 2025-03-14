@@ -97,7 +97,4 @@
     <PackageReference Include="System.Xml.XPath.XDocument" Version="4.3.0" />
     <PackageReference Include="System.Xml.XPath.XmlDocument" Version="4.7.0" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Pooling\TestClasses\" />
-  </ItemGroup>
 </Project>
