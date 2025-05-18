@@ -1,23 +1,23 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <OutputType>Library</OutputType>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <LangVersion>default</LangVersion>
-    <Nullable>warnings</Nullable>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System.Reflection" />
     <Reference Include="System.Runtime" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="LightBDD.Core" Version="3.10.0" />
-    <PackageReference Include="LightBDD.Framework" Version="3.10.0" />
+    <PackageReference Include="LightBDD.Core" Version="3.11.0" />
+    <PackageReference Include="LightBDD.Framework" Version="3.11.0" />
     <PackageReference Include="LightBDD.MsTest2" Version="3.6.1" />
-    <PackageReference Include="LightBDD.NUnit3" Version="3.10.0" />
+    <PackageReference Include="LightBDD.NUnit3" Version="3.11.0" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-    <PackageReference Include="MSTest.TestAdapter" Version="3.8.2" />
-    <PackageReference Include="MSTest.TestFramework" Version="3.8.2" />
+    <PackageReference Include="MSTest.TestAdapter" Version="3.8.3" />
+    <PackageReference Include="MSTest.TestFramework" Version="3.8.3" />
     <PackageReference Include="NUnit" Version="4.3.2" />
   </ItemGroup>
 </Project>
